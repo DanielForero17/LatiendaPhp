@@ -78,4 +78,8 @@ echo "<h1> $pais </h1>";
 
 return view('paises')
  -> with("paises", $paises);
-});    
+});   
+
+// rutas  rest //
+route::resource('produtos',ProductosController::class);
+
