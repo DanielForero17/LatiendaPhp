@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,5 +82,5 @@ return view('paises')
 });   
 
 // rutas  rest //
-route::resource('produtos',ProductosController::class);
+route::resource('productos',ProductoController::class);
 
