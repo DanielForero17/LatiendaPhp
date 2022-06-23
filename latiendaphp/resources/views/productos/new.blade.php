@@ -1,6 +1,14 @@
 @extends('layouts.menu')
-
 @section('contenido')
+@if(session('mensajito'))
+<div class="row">
+    <h3>{{session('mensajito')}}</h3>
+    <div class="row">
+    <h1 class="brown-text text-darken-4">Nuevo Producto</h1>
+
+
+</div>
+@endif
 <div class="row">
     <h1 class="brown-text text-darken-4">Nuevo Producto</h1>
 </div>
@@ -11,6 +19,7 @@
             <div class="col s8 input-field">
                 <input  type="text" id="nombre" name="nombre" placeholder="Nombre Producto" />
                 <label for="nombre">Nombre Producto</label>
+                <strong>{{ $errors->first('nombre')}}</strong>
             </div>
         </div>
         <div class="row">
@@ -36,6 +45,7 @@
                 <input type="text" class="file-path">
             </div>
             </div>
+            <strong>{{ $errors->first('imagen')}}</strong>
         </div>
 
     
@@ -58,12 +68,19 @@
         <div class="row">
         <div class="clo.s8.input-fiel">
             <select name="categoria" id="categoria">
-            @foreach(categorias as $categoria)
+            <option value="">Seleccione Categoria</option>
+            @foreach($categorias as $categoria)
             <option value="{{$categoria->id}}">
                 {{$categoria->nombre}}
             </option>
-@endforeach
             <label>seleccione categoria</label>
+            @endforeach
+
+        </div>
+        </div>    
+
+            <label>seleccione categoria</label>
+            <strong>{{ $errors->first('categoria')}}</strong>
             
 </select>
 
